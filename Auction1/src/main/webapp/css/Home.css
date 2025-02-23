@@ -1,23 +1,9 @@
-/* Flipkart-like styling */
+/* General Styling */
 body {
     font-family: Arial, sans-serif;
-    background: #f1f1f1;
-    margin: 0;
-    padding: 20px;
-    display: flex;
-    flex-direction: column; /* Ensures stacking order */
-    align-items: center;
-    min-height: 100vh; /* Allows content to expand */
+    background: #f8f9fa;
     margin: 0;
     padding-top: 80px;
-}
-
-/* Product container */
-.product-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
 }
 
 /* Product Card */
@@ -28,8 +14,8 @@ body {
     overflow: hidden;
     text-align: center;
     padding: 15px;
-    width: 220px;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    animation: fadeInUp 0.5s ease-in-out;
 }
 
 .product-card:hover {
@@ -48,15 +34,15 @@ body {
 /* Product Name */
 .product-card h3 {
     margin: 10px 0;
-    font-size: 16px;
+    font-size: 18px;
     color: #333;
 }
 
-/* Price */
+/* Bidding Time */
 .time {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
-    color: #008cff;
+    color: #007bff;
 }
 
 /* Description */
@@ -66,7 +52,7 @@ body {
     margin-bottom: 10px;
 }
 
-/* Buy Button */
+/* Interest Button */
 .buy-btn {
     background: #e6571e;
     color: white;
@@ -76,9 +62,30 @@ body {
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.2s ease-in-out;
 }
 
 .buy-btn:hover {
     background: #c24517;
+    transform: scale(1.05);
 }
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .product-card {
+        width: 90%;
+        margin: auto;
+    }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}*/

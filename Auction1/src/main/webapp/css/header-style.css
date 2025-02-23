@@ -1,114 +1,44 @@
-/* General Header Styling */
-header {
-    background-color: #b0c8e7;
-    padding: 15px 20px;
-    height: 30px; /* Define explicit height */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-}
-/* Container */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-/* Logo */
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #232f3e;
-    text-decoration: none;
+/* Header Styling */
+.custom-header {
+    background-color: #2c3e50 !important; /* Dark blue background */
+    transition: all 0.3s ease;
 }
 
-/* Navigation */
-.navbar ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    padding: 0;
-    margin: 0;
+/* Navbar Links */
+.navbar-brand,
+.nav-link {
+    color: #ecf0f1 !important;
 }
 
-.navbar ul li {
-    display: inline;
+.nav-link:hover {
+    color: #e27929 !important;
 }
 
-.navbar ul li a {
-    text-decoration: none;
-    font-size: 16px;
-    color: #333;
-    transition: color 0.3s ease;
+/* Navbar Toggler */
+.navbar-toggler {
+    border-color: #ecf0f1;
 }
 
-.navbar ul li a:hover {
-    color: #e6571e;
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(236, 240, 241, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
-/* Right Section */
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-/* Search Bar */
-.search-bar {
-    position: relative;
-}
-
-.search-bar input {
-    padding: 8px 12px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 14px;
-}
-
-.search-bar button {
-    position: absolute;
-    right: 5px;
-    top: 50%;
-    transform: translateY(-50%);
-    border: none;
-    background: none;
-    cursor: pointer;
-    font-size: 16px;
-    color: #666;
-}
-
-/* Button */
-.btn {
-    background: #e6571e;
-    color: white;
-    padding: 8px 15px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 14px;
-    transition: background 0.3s ease;
-}
-
-.btn:hover {
-    background: #c24517;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        text-align: center;
+/* Responsive Design */
+@media (max-width: 992px) {
+    #navbarNav {
+        padding: 20px 0;
     }
 
-    .navbar ul {
-        flex-direction: column;
-        gap: 10px;
+    .navbar-brand {
+        font-size: 1.5rem;
     }
-    .header-right {
-        flex-direction: column;
-        gap: 10px;
+
+    .nav-item {
+        margin: 8px 0;
+    }
+
+    .search-form {
+        margin-bottom: 15px;
     }
 }
+ 
