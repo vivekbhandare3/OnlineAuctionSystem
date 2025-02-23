@@ -1,0 +1,110 @@
+/* Ensure body takes full viewport height */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures full height */
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Main content grows and pushes the footer down */
+.main-content {
+    flex-grow: 1;
+    padding-bottom: 60px; /* Ensures content does not overlap the footer */
+}
+
+/* Footer Styling */
+footer {
+    background-color: #232f3e;
+    color: white;
+    text-align: center;
+    width: 100%;
+    padding: 10px 0;
+    margin-top: auto; /* Push footer to bottom */
+}
+
+
+/* Back to Top Button */
+.footer-top {
+    background-color: #37475a;
+    text-align: center;
+    padding: 8px 0; /* Reduced padding */
+    font-size: 14px;
+}
+
+.footer-top a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-top a:hover {
+    text-decoration: underline;
+}
+
+/* Footer Content */
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 10px 0; /* Reduced padding */
+}
+
+.footer-section {
+    width: 22%;
+    padding: 5px;
+    text-align: left;
+}
+
+.footer-section h3 {
+    font-size: 14px; /* Reduced font size */
+    margin-bottom: 8px;
+    color: #f0c14b;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 5px;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 12px; /* Reduced font size */
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    padding: 8px 0; /* Reduced padding */
+    font-size: 12px; /* Smaller text */
+    background-color: #131A22;
+}
+
+/* Prevent Register Container Overlapping Footer */
+.register-container {
+    margin-bottom: 80px; /* Ensures spacing above footer */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-section {
+        width: 100%;
+        padding: 5px 0;
+    }
+}
