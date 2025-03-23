@@ -1,0 +1,147 @@
+/* Guaranteed sticky footer at bottom of page */
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Minimum height of 100% viewport height */
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* This is critical - makes content area expand to push footer down */
+main {
+    flex: 1 0 auto; /* This is the key - it will grow but not shrink */
+}
+
+/* If you don't have a main tag, wrap your content in this */
+.content-wrapper {
+    flex: 1 0 auto;
+}
+
+/* Footer styling */
+footer {
+    flex-shrink: 0; /* Prevents footer from shrinking */
+    background: linear-gradient(135deg, #232f3e 0%, #131A22 100%);
+    color: white;
+    width: 100%;
+    margin-top: auto; /* This helps push it to the bottom */
+}
+
+/* Back to Top Button */
+.footer-top {
+    background-color: #37475a;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.footer-top a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.footer-top a:before {
+    content: "↑";
+    margin-right: 8px;
+}
+
+.footer-top a:hover {
+    color: #00ff99;
+}
+
+/* Footer Content */
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 25px 20px;
+}
+
+.footer-section {
+    width: 22%;
+    padding: 0 10px;
+}
+
+.footer-section h3 {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #f0c14b;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+.footer-section h3:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 40px;
+    background-color: #00ff99;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    color: #e6e6e6;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #00ff99;
+    padding-left: 5px;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    padding: 15px 0;
+    font-size: 13px;
+    background-color: #0b1016;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .footer-section {
+        width: 45%;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .footer-section {
+        width: 100%;
+        padding: 10px 0;
+        text-align: center;
+    }
+    
+    .footer-section h3:after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Products - Auction System</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background-color: #f4f4f4; }
+        .container { max-width: 800px; margin: auto; }
+        h2 { text-align: center; }
+        .product { border: 1px solid #ddd; padding: 15px; margin: 10px 0; background: white; border-radius: 5px; }
+        button { padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background-color: #45a049; }
+        button:disabled { background-color: #cccccc; cursor: not-allowed; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Live Auctions</h2>
+        <div id="auctions"></div>
+        <p><a href="add-product.html">Add a Product</a></p>
+    </div>
+
+    <!-- Firebase Scripts -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+        import { getDatabase, ref, onValue, update, runTransaction } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyD2aGGO4VFHnBgBkODU4jhk8cLS7A9lRdA",
+            authDomain: "auction-71577.firebaseapp.com",
+            databaseURL: "https://auction-71577-default-rtdb.firebaseio.com",
+            projectId: "auction-71577",
+            storageBucket: "auction-71577.firebasestorage.app",
+            messagingSenderId: "825142032729",
+            appId: "1:825142032729:web:82c1a9e8cac45fd0127448",
+            measurementId: "G-EL8J6M4VRW"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+
+        const auctionsDiv = document.getElementById('auctions');
+        const auctionRef = ref(database, "auctions");
+
+        onValue(auctionRef, (snapshot) => {
+            auctionsDiv.innerHTML = ''; // Clear previous items
+
+            snapshot.forEach(child => {
+                const data = child.val();
+                const currentTime = new Date().getTime();
+                const auctionTime = data.auctionTime;
+
+                if (currentTime >= auctionTime && !data.isActive) {
+                    update(ref(database, `auctions/${child.key}`), { isActive: true });
+                }
+
+                auctionsDiv.innerHTML += `
+                    <div class="product">
+                        <h4>${data.productName}</h4>
+                        <p>${data.description}</p>
+                        <p>Current Price: ₹${data.currentPrice}</p>
+                        <p>Auction Time: ${new Date(data.auctionTime).toLocaleString()}</p>
+                        <p>Seller: ${data.seller}</p>
+                        <button onclick="placeBid('${child.key}', ${data.currentPrice})" ${!data.isActive ? 'disabled' : ''}>Place Bid</button>
+                    </div>
+                `;
+            });
+        });
+
+        window.placeBid = function(id, currentPrice) {
+            const priceRef = ref(database, `auctions/${id}/currentPrice`);
+            runTransaction(priceRef, (price) => {
+                if (!price) return price;
+                return price + price * 0.05; // Increase by 5%
+            }).then(() => {
+                // Bid placed successfully
+            }).catch(error => {
+                alert("Error placing bid: " + error.message);
+            });
+        }
+    </script>
+</body>
+</html>

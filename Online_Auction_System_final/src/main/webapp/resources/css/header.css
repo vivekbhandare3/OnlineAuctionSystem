@@ -1,0 +1,161 @@
+/* Header Styling */
+.custom-header {
+    background-color: #2c3e50 !important; /* Dark blue background */
+    transition: all 0.3s ease;
+    padding: 10px 0 !important; /* Reduced padding to control height */
+    height: 60px; /* Set a fixed height for the header */
+    display: flex;
+    align-items: center;
+}
+
+/* Adjust the container to fit within the header height */
+.custom-header .container {
+    padding: 0 15px;
+}
+
+/* Navbar Styling */
+.navbar {
+    padding: 0 !important; /* Remove default Bootstrap padding */
+}
+
+/* Navbar Brand and Links */
+.navbar-brand,
+.nav-link {
+    color: #ecf0f1 !important;
+    font-size: 1rem; /* Slightly smaller font size for better fit */
+    padding: 8px 15px !important; /* Adjust padding for links */
+}
+
+.navbar-brand {
+    font-size: 1.25rem !important; /* Slightly smaller logo font */
+}
+
+.nav-link:hover {
+    color: #e27929 !important;
+}
+
+/* Navbar Toggler */
+.navbar-toggler {
+    border-color: #ecf0f1;
+    padding: 5px 10px !important; /* Smaller toggler button */
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(236, 240, 241, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    width: 20px;
+    height: 20px;
+}
+
+/* Search Form */
+.search-form {
+    margin: 0; /* Remove extra margins */
+}
+
+.search-form .input-group {
+    width: 250px; /* Slightly wider for better balance */
+    height: 32px; /* Fixed height to fit within header */
+}
+
+.search-form .search-input {
+    font-size: 0.85rem; /* Smaller font size */
+    padding: 4px 8px; /* Reduced padding for compact look */
+    border: 1px solid #ecf0f1; /* Light border for contrast */
+    border-right: none; /* Remove right border for seamless button integration */
+    background-color: #34495e; /* Slightly lighter background for input */
+    color: #ecf0f1; /* White text */
+}
+
+.search-form .search-input::placeholder {
+    color: #b0bec5; /* Lighter placeholder text */
+}
+
+.search-form .btn-search {
+    padding: 4px 10px; /* Reduced padding for button */
+    background-color: #e27929; /* Orange background for contrast */
+    border: 1px solid #e27929; /* Matching border */
+    color: #fff; /* White icon */
+    transition: background-color 0.3s ease;
+}
+
+.search-form .btn-search:hover {
+    background-color: #c8641f; /* Darker orange on hover */
+    border-color: #c8641f;
+}
+
+.search-form .btn-search i {
+    font-size: 0.9rem; /* Slightly larger icon */
+}
+
+/* Login Dropdown */
+.login-dropdown .btn {
+    font-size: 0.9rem; /* Smaller button text */
+    padding: 4px 10px; /* Reduced padding to match search bar height */
+    height: 32px; /* Match the search bar height */
+    display: flex;
+    align-items: center;
+}
+
+.login-dropdown .dropdown-menu {
+    margin-top: 0; /* Remove extra space above dropdown */
+}
+
+/* Hover Effect for Dropdown (Using CSS) */
+.login-dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}
+
+/* Right Section (Search + Login) */
+.d-flex.flex-column.flex-lg-row {
+    gap: 10px; /* Reduced gap between search bar and login dropdown */
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .custom-header {
+        height: auto; /* Allow header to expand on smaller screens */
+        padding: 10px 0 !important;
+    }
+
+    .navbar-collapse {
+        padding: 10px 0; /* Reduced padding for collapsed menu */
+    }
+
+    .navbar-brand {
+        font-size: 1.2rem !important; /* Smaller logo on mobile */
+    }
+
+    .nav-item {
+        margin: 5px 0; /* Reduced margin for nav items */
+    }
+
+    .nav-link {
+        font-size: 0.95rem; /* Smaller font size for nav links */
+        padding: 5px 10px !important;
+    }
+
+    .search-form {
+        margin-bottom: 8px; /* Slightly reduced margin */
+        width: 100%; /* Full width on mobile */
+    }
+
+    .search-form .input-group {
+        width: 100%; /* Full width for search bar on mobile */
+        height: 36px; /* Slightly taller on mobile for better touch target */
+    }
+
+    .search-form .search-input {
+        font-size: 0.9rem; /* Slightly larger font on mobile */
+        padding: 6px 10px; /* Adjusted padding for mobile */
+    }
+
+    .search-form .btn-search {
+        padding: 6px 12px; /* Adjusted padding for mobile */
+    }
+
+    .login-dropdown .btn {
+        width: 100%; /* Full width for login button on mobile */
+        text-align: left;
+        height: 36px; /* Match the search bar height on mobile */
+    }
+}
