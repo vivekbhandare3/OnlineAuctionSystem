@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Auction System</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { max-width: 800px; margin: auto; }
+        .product { border: 1px solid #ddd; padding: 15px; margin: 10px 0; }
+        button { padding: 10px 20px; background-color: #4CAF50; color: white; border: none; }
+        button:hover { background-color: #45a049; }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <ul class="nav-links">
+            <li><a class="navbar-brand" href="#">Home</a></li>
+            <li><a class="navbar-brand" href="#">About</a></li>
+            <li><a class="navbar-brand" href="#">Contact</a></li>
+            <button onclick="logout()">Logout</button>
+        </ul>
+    </nav>
+
+    <div class="container text-center mt-5">
+        <h1>Welcome to the Auction System!</h1>
+    </div>
+
+    <script type="module">
+        import { auth } from "./firebase.js";
+        import { signOut } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
+
+        function logout() {
+            signOut(auth).then(() => {
+                location.replace("index.html");
+            }).catch((error) => {
+                alert(error.message);
+            });
+        }
+        window.logout = logout;
+    </script>
+
+    <div class="container">
+        <h2>Live Auction System</h2>
+
+        <div id="productForm">
+            <h3>Add Product for Auction</h3>
+            <input type="text" id="productName" placeholder="Product Name"/><br><br>
+            <textarea id="productDesc" placeholder="Product Description"></textarea><br><br>
+            <input type="number" id="startingPrice" placeholder="Starting Price"/><br><br>
+            <input type="datetime-local" id="auctionTime"/><br><br>
+            <button onclick="addProduct()">Add Product</button>
+        </div>
+        <h3>Live Auctions</h3>
+        <div id="auctions"></div>
+    </div>
+
+    <script type="module" src="firebase.js"></script>
+    <script type="module" src="auction-add.js"></script>
+    <script type="module" src="auction-display.js"></script>
+</body>
+</html>
